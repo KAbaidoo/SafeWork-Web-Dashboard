@@ -1,35 +1,61 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 
+// Move palette tokens into MUI theme for idiomatic usage and easier theming
 declare module '@mui/material/styles' {
   interface Palette {
-    background: {
-      default: string
-      paper: string
-    }
+    neutral: {
+      100: string;
+      200: string;
+      300: string;
+    };
+  }
+  interface PaletteOptions {
+    neutral?: {
+      100?: string;
+      200?: string;
+      300?: string;
+    };
   }
 }
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#007BFF', // Primary action/branding
+      main: '#1D3A6D', // Primary action/branding
+      dark: '#0056b3',
+      contrastText: '#FFFFFF',
     },
     success: {
       main: '#28A745', // Safety/compliant status
+      light: '#e6f4ea',
     },
     warning: {
       main: '#FFC107', // Pending/due soon alerts
+      light: '#fff3e0',
     },
     error: {
       main: '#DC3545', // Critical issues/overdue
+      light: '#ffebee',
+    },
+    info: {
+      light: '#e3f2fd',
+      main: '#0288d1',
     },
     background: {
       default: '#F8F9FA', // Main app background
       paper: '#FFFFFF',
     },
+    neutral: {
+      100: '#f5f5f5',
+      200: '#E9ECEF',
+      300: '#DEE2E6',
+    },
+  },
+  shape: {
+    borderRadius: 8, // Global border radius (default is 4px)
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial',
     h4: {
       fontWeight: 600,
     },
@@ -64,4 +90,4 @@ export const theme = createTheme({
       },
     },
   },
-})
+});
